@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
 
 function PortraitModel() {
-  const { scene } = useGLTF("./joulian-portfolio/portrait.glb"); // custom 3D-models should be .glb
+  const { scene } = useGLTF("./portrait.glb"); // custom 3D-models should be .glb
   const modelRef = useRef();
 
   // Rotate the model on its y-axis
