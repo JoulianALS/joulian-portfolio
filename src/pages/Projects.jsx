@@ -63,7 +63,7 @@ const sections = [
     title: "Spiele",
     images: [
       {
-        src: "https://github.com/22af2d9e-ad82-4057-a07d-8f87d3666248",
+        src: "{`${import.meta.env.BASE_URL}assets/pics/OutOfLight.png`}",
         title: "OutOfLight",
         description: "Ein kurzes First-Person Horrorspiel in Unity.",
         technologies: "Unity, C#",
