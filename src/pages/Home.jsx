@@ -26,7 +26,7 @@ const Home = () => {
 
       {/* Downloadable CV */}
       <a
-        href="/src/assets/docs/lebenslauf.pdf"
+        href="./joulian-portfolio/lebenslauf.pdf"
         download="lebenslauf.pdf"
         className="download-cv"
       >
