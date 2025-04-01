@@ -63,7 +63,7 @@ const sections = [
     title: "Spiele",
     images: [
       {
-        src: "public/OutOfLight.png",
+        src: "../../../public/OutOfLight.png",
         title: "OutOfLight",
         description: "Ein kurzes First-Person Horrorspiel in Unity.",
         technologies: "Unity, C#",
