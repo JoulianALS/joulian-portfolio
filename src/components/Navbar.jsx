@@ -9,7 +9,7 @@ function Navbar() {
 
       {/* Right Side - Links */}
       <div className="navbar-links">
-        <Link to="/joulian-portfolio">Startseite</Link>
+        <Link to="/">Startseite</Link>
         <Link to="/projects">Projekte</Link>
         <Link to="/contact">Kontakt</Link>
       </div>
