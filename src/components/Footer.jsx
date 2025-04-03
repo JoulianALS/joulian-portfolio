@@ -17,7 +17,7 @@ function Footer() {
           <FaGithub size={30} />
         </a>
         <a
-          href="https://www.linkedin.com/in/joulian-alsuliman-06004535a"
+          href="https://www.linkedin.com/in/joulian-alsuliman-06004535a/"
           target="_blank"
           rel="noopener noreferrer"
         >
