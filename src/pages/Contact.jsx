@@ -22,10 +22,10 @@ function Contact() {
 
     emailjs
       .send(
-        "service_yek94ig", // EmailJS service ID
-        "template_ukdyl2r", // EmailJS template ID
+        "service_yek94ig",
+        "template_ukdyl2r",
         formData,
-        "Nv6ECDM1A_Lj6sQ-X" // EmailJS user ID
+        "Nv6ECDM1A_Lj6sQ-X"
       )
       .then(
         () => {
@@ -109,6 +109,15 @@ function Contact() {
           {notification.message}
         </p>
       )}
+
+      {/* Downloadable CV */}
+      <a
+        href="./joulian-portfolio/lebenslauf.pdf"
+        download="lebenslauf.pdf"
+        className="download-cv"
+      >
+        Lebenslauf herunterladen
+      </a>
     </div>
   );
 }

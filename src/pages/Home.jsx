@@ -23,15 +23,6 @@ const Home = () => {
           <PortraitScene/>
         </div>
       </div>
-
-      {/* Downloadable CV */}
-      <a
-        href="./joulian-portfolio/lebenslauf.pdf"
-        download="lebenslauf.pdf"
-        className="download-cv"
-      >
-        Lebenslauf herunterladen
-      </a>
     </div>
   );
 };
