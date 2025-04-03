@@ -321,19 +321,14 @@ footer p {
   font-size: 0.9rem;
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.social-links a {
+footer a {
   color: #7f5af0;
+  margin-top: 10px;
+  display: inline-block;
   transition: color 0.3s ease;
 }
 
-.social-links a:hover {
+footer a:hover {
   color: #58a6ff;
 }
 
