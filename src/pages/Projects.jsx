@@ -239,7 +239,9 @@ function Section({ title, images }) {
         <div className="section-description">
           <h2>{currentImage.title}</h2>
           <p>{currentImage.description}</p>
-          <p><strong>Technologien:</strong> {currentImage.technologies}</p>
+          <p>
+            <strong>Technologien:</strong> <span className="technologies-text">{currentImage.technologies}</span>
+          </p>
         </div>
 
         {/* Slider */}

@@ -470,7 +470,6 @@ footer a:hover {
   }
 }
 
-
 @keyframes glowPulse {
   0%, 100% {
     text-shadow: 0 0 5px rgba(127, 90, 240, 0.8), 0 0 10px rgba(127, 90, 240, 0.6), 0 0 15px rgba(127, 90, 240, 0.4);
@@ -478,4 +477,14 @@ footer a:hover {
   50% {
     text-shadow: 0 0 10px rgba(127, 90, 240, 1), 0 0 20px rgba(127, 90, 240, 0.8), 0 0 30px rgba(127, 90, 240, 0.6);
   }
+}
+
+.technologies-text {
+  font-style: italic;
+  color: #7f5af0;
+  background: linear-gradient(90deg, #7f5af0, #58a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(127, 90, 240, 0.8), 0 0 10px rgba(127, 90, 240, 0.6);
 }
