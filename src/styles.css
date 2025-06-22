@@ -332,6 +332,55 @@ footer a:hover {
   color: #58a6ff;
 }
 
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  max-width: 720px;
+  min-width: 220px;
+  width: 100%;
+  background: rgba(30,32,50,0.92);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  margin: 0 auto;
+}
+
+.skills-category-title {
+  color: #7f5af0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.skills-list {
+  margin-left: 16px;
+}
+
+.skills-list-item {
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.skills-category {
+  margin-bottom: 0;
+}
+
+/* Responsive for skills grid */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    padding: 12px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 430px) {
   /* Navigation */

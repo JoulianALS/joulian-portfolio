@@ -109,8 +109,9 @@ function Contact() {
           {notification.message}
         </p>
       )}
-
+      
       {/* Downloadable CV */}
+      {/*
       <a
         href="./joulian-portfolio/lebenslauf.pdf"
         download="lebenslauf.pdf"
@@ -118,6 +119,7 @@ function Contact() {
       >
         Lebenslauf herunterladen
       </a>
+      */}
     </div>
   );
 }
