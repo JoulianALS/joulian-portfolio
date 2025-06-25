@@ -1,206 +1,367 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Slider from "react-slick";
 import BackgroundScene from "../three/BackgroundScene";
+import { LanguageContext } from "../App";
 
-const sections = [
-  // Apps
-  {
-    title: "Apps",
-    images: [
-      {
-        src: "./joulian-portfolio/LoRaChat.png",
-        title: "LoRaChat",
-        description: "Eine App für verschlüsselte Nachrichten über LoRa-Netzwerke.",
-        technologies: "LoRa, C, C#, WPF",
-      },
-      {
-        src: "./joulian-portfolio/Notflix.png",
-        title: "Notflix",
-        description: "Eine Web-App, die Netflix nachahmt.",
-        technologies: "Blazor, Bootstrap, C#",
-      },
-      {
-        src: "./joulian-portfolio/Essistent.png",
-        title: "Essistent",
-        description: "Eine App, die Rezepte basierend auf Zutaten vorschlägt.",
-        technologies: "Python, TKinter",
-      },
-      {
-        src: "./joulian-portfolio/EasyChat.png",
-        title: "EasyChat",
-        description: "Ein Chatprogramm für mehrere Nutzer über einen Server.",
-        technologies: "WPF, C#, TCP",
-      },
-      {
-        src: "./joulian-portfolio/ToDo.png",
-        title: "To-Do",
-        description: "Eine einfache To-Do-Liste.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/SimpleEditor.png",
-        title: "SimpleEditor",
-        description: "Ein einfacher Texteditor.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/LottoSimulation.png",
-        title: "LottoSimulation",
-        description: "Simuliere eine Lotterie.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/FootballSimulator.png",
-        title: "FootballSimulator",
-        description: "Simuliere eine Fußballliga.",
-        technologies: "WPF, C#",
-      },
-    ],
-  },
+const sectionsData = {
+  de: [
+    // Apps
+    {
+      title: "Apps",
+      images: [
+        {
+          src: "./joulian-portfolio/LoRaChat.png",
+          title: "LoRaChat",
+          description: "Eine App für verschlüsselte Nachrichten über LoRa-Netzwerke.",
+          technologies: "LoRa, C, C#, WPF",
+        },
+        {
+          src: "./joulian-portfolio/Notflix.png",
+          title: "Notflix",
+          description: "Eine Web-App, die Netflix nachahmt.",
+          technologies: "Blazor, Bootstrap, C#",
+        },
+        {
+          src: "./joulian-portfolio/Essistent.png",
+          title: "Essistent",
+          description: "Eine App, die Rezepte basierend auf Zutaten vorschlägt.",
+          technologies: "Python, TKinter",
+        },
+        {
+          src: "./joulian-portfolio/EasyChat.png",
+          title: "EasyChat",
+          description: "Ein Chatprogramm für mehrere Nutzer über einen Server.",
+          technologies: "WPF, C#, TCP",
+        },
+        {
+          src: "./joulian-portfolio/ToDo.png",
+          title: "To-Do",
+          description: "Eine einfache To-Do-Liste.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/SimpleEditor.png",
+          title: "SimpleEditor",
+          description: "Ein einfacher Texteditor.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/LottoSimulation.png",
+          title: "LottoSimulation",
+          description: "Simuliere eine Lotterie.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/FootballSimulator.png",
+          title: "FootballSimulator",
+          description: "Simuliere eine Fußballliga.",
+          technologies: "WPF, C#",
+        },
+      ],
+    },
 
-  // Games
-  {
-    title: "Spiele",
-    images: [
-      {
-        src: "./joulian-portfolio/OutOfLight.png",
-        title: "OutOfLight",
-        description: "Ein kurzes First-Person Horrorspiel in Unity.",
-        technologies: "Unity, C#",
-      },
-      {
-        src: "./joulian-portfolio/Breakout.png",
-        title: "Breakout",
-        description: "Ein physikbasiertes Breakout-Spiel.",
-        technologies: "Unity, C#",
-      },
-      {
-        src: "./joulian-portfolio/Platformer.png",
-        title: "2D-Platformer",
-        description: "Ein einfacher 2D-Platformer.",
-        technologies: "Unity, C#",
-      },
-      {
-        src: "./joulian-portfolio/UNO.png",
-        title: "UNO",
-        description: "Ein UNO-Spiel mit Musikplayer.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/RedLightGreenLight.png",
-        title: "RotGrün",
-        description: "Ein Spiel, bei dem du dich bei Grün bewegst und bei Rot stoppst. (Squid Game)",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/Snake.png",
-        title: "Snake",
-        description: "Ein klassisches Snake-Spiel.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/TicTacToe.png",
-        title: "TicTacToe",
-        description: "Ein einfaches Tic-Tac-Toe-Spiel.",
-        technologies: "WPF, C#",
-      },
-      {
-        src: "./joulian-portfolio/Yahtzee.png",
-        title: "Yahtzee",
-        description: "Ein Würfelspiel.",
-        technologies: "WPF, C#",
-      },
-    ],
-  },
+    // Games
+    {
+      title: "Spiele",
+      images: [
+        {
+          src: "./joulian-portfolio/OutOfLight.png",
+          title: "OutOfLight",
+          description: "Ein kurzes First-Person Horrorspiel in Unity.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/Breakout.png",
+          title: "Breakout",
+          description: "Ein physikbasiertes Breakout-Spiel.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/Platformer.png",
+          title: "2D-Platformer",
+          description: "Ein einfacher 2D-Platformer.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/UNO.png",
+          title: "UNO",
+          description: "Ein UNO-Spiel mit Musikplayer.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/RedLightGreenLight.png",
+          title: "RotGrün",
+          description: "Ein Spiel, bei dem du dich bei Grün bewegst und bei Rot stoppst. (Squid Game)",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/Snake.png",
+          title: "Snake",
+          description: "Ein klassisches Snake-Spiel.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/TicTacToe.png",
+          title: "TicTacToe",
+          description: "Ein einfaches Tic-Tac-Toe-Spiel.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/Yahtzee.png",
+          title: "Yahtzee",
+          description: "Ein Würfelspiel.",
+          technologies: "WPF, C#",
+        },
+      ],
+    },
 
-  // Websites
-  {
-    title: "Webseiten",
-    images: [
-      {
-        src: "./joulian-portfolio/DreamStudio.png",
-        title: "DreamStudio",
-        description: "Eine Website für Fotografen.",
-        technologies: "HTML, CSS, JavaScript",
-      },
-      {
-        src: "./joulian-portfolio/ArtGallery.png",
-        title: "ArtGallery",
-        description: "Eine Website, um Kunstwerke zu zeigen.",
-        technologies: "HTML, CSS",
-      },
-      {
-        src: "./joulian-portfolio/Pong.png",
-        title: "Pong",
-        description: "Ein klassisches Pong-Spiel.",
-        technologies: "HTML, CSS, JavaScript",
-      },
-      {
-        src: "./joulian-portfolio/AvatarCreator.png",
-        title: "AvatarCreator",
-        description: "Erstelle einen Avatar mit verschiedenen Optionen.",
-        technologies: "HTML, CSS, JavaScript",
-      },
-      {
-        src: "./joulian-portfolio/Recipe.png",
-        title: "Rezept",
-        description: "Eine einfache Rezeptseite.",
-        technologies: "HTML, CSS",
-      },
-      {
-        src: "./joulian-portfolio/Hangman.png",
-        title: "Hangman",
-        description: "Ein Hangman-Spiel.",
-        technologies: "HTML, CSS, JavaScript",
-      },
-      {
-        src: "./joulian-portfolio/CarAnimation.png",
-        title: "CarAnimation",
-        description: "Eine Animation eines fahrenden Autos.",
-        technologies: "HTML, CSS",
-      },
-    ],
-  },
+    // Websites
+    {
+      title: "Webseiten",
+      images: [
+        {
+          src: "./joulian-portfolio/DreamStudio.png",
+          title: "DreamStudio",
+          description: "Eine Website für Fotografen.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/ArtGallery.png",
+          title: "ArtGallery",
+          description: "Eine Website, um Kunstwerke zu zeigen.",
+          technologies: "HTML, CSS",
+        },
+        {
+          src: "./joulian-portfolio/Pong.png",
+          title: "Pong",
+          description: "Ein klassisches Pong-Spiel.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/AvatarCreator.png",
+          title: "AvatarCreator",
+          description: "Erstelle einen Avatar mit verschiedenen Optionen.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/Recipe.png",
+          title: "Rezept",
+          description: "Eine einfache Rezeptseite.",
+          technologies: "HTML, CSS",
+        },
+        {
+          src: "./joulian-portfolio/Hangman.png",
+          title: "Hangman",
+          description: "Ein Hangman-Spiel.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/CarAnimation.png",
+          title: "CarAnimation",
+          description: "Eine Animation eines fahrenden Autos.",
+          technologies: "HTML, CSS",
+        },
+      ],
+    },
 
-  // // Art
-  // {
-  //   title: "Art",
-  //   images: [
-  //     {
-  //       src: "./joulian-portfolio/Diorama.png",
-  //       title: "Wild West Diorama",
-  //       description: "Ein detailliertes 3D-Diorama, das eine Westernstadt mit realistischen Elementen darstellt.",
-  //       technologies: "Blender",
-  //     },
-  //     {
-  //       src: "./joulian-portfolio/DoseWerbung.mp4",
-  //       title: "DoseWerbung",
-  //       description: "Eine kreative Werbeanimation für eine fiktive Getränkedose.",
-  //       technologies: "Blender, Premiere Pro",
-  //     },
-  //     {
-  //       src: "./joulian-portfolio/BallAnimation.mp4",
-  //       title: "BallAnimation",
-  //       description: "Eine Sammlung von Animationen, die verschiedene physikalische Eigenschaften von Bällen zeigen.",
-  //       technologies: "After Effects",
-  //     },
-  //     {
-  //       src: "./joulian-portfolio/AutoAnimation.mp4",
-  //       title: "AutoAnimation",
-  //       description: "Eine physikbasierte Animation eines Autos, das beschleunigt und abbremst.",
-  //       technologies: "After Effects",
-  //     },
-  //     {
-  //       src: "./joulian-portfolio/RaketenAnimation.mp4",
-  //       title: "RaketenAnimation",
-  //       description: "Eine Animation, die den Start einer Rakete in den Weltraum zeigt.",
-  //       technologies: "After Effects",
-  //     }, 
-  //   ],
-  // },
-];
+    // // Art
+    // {
+    //   title: "Art",
+    //   images: [
+    //     {
+    //       src: "./joulian-portfolio/Diorama.png",
+    //       title: "Wild West Diorama",
+    //       description: "Ein detailliertes 3D-Diorama, das eine Westernstadt mit realistischen Elementen darstellt.",
+    //       technologies: "Blender",
+    //     },
+    //     {
+    //       src: "./joulian-portfolio/DoseWerbung.mp4",
+    //       title: "DoseWerbung",
+    //       description: "Eine kreative Werbeanimation für eine fiktive Getränkedose.",
+    //       technologies: "Blender, Premiere Pro",
+    //     },
+    //     {
+    //       src: "./joulian-portfolio/BallAnimation.mp4",
+    //       title: "BallAnimation",
+    //       description: "Eine Sammlung von Animationen, die verschiedene physikalische Eigenschaften von Bällen zeigen.",
+    //       technologies: "After Effects",
+    //     },
+    //     {
+    //       src: "./joulian-portfolio/AutoAnimation.mp4",
+    //       title: "AutoAnimation",
+    //       description: "Eine physikbasierte Animation eines Autos, das beschleunigt und abbremst.",
+    //       technologies: "After Effects",
+    //     },
+    //     {
+    //       src: "./joulian-portfolio/RaketenAnimation.mp4",
+    //       title: "RaketenAnimation",
+    //       description: "Eine Animation, die den Start einer Rakete in den Weltraum zeigt.",
+    //       technologies: "After Effects",
+    //     }, 
+    //   ],
+    // },
+  ],
+  en: [
+    {
+      title: "Apps",
+      images: [
+        {
+          src: "./joulian-portfolio/LoRaChat.png",
+          title: "LoRaChat",
+          description: "An app for encrypted messages over LoRa networks.",
+          technologies: "LoRa, C, C#, WPF",
+        },
+        {
+          src: "./joulian-portfolio/Notflix.png",
+          title: "Notflix",
+          description: "A web app that mimics Netflix.",
+          technologies: "Blazor, Bootstrap, C#",
+        },
+        {
+          src: "./joulian-portfolio/Essistent.png",
+          title: "Essistent",
+          description: "An app that suggests recipes based on ingredients.",
+          technologies: "Python, TKinter",
+        },
+        {
+          src: "./joulian-portfolio/EasyChat.png",
+          title: "EasyChat",
+          description: "A chat program for multiple users via a server.",
+          technologies: "WPF, C#, TCP",
+        },
+        {
+          src: "./joulian-portfolio/ToDo.png",
+          title: "To-Do",
+          description: "A simple to-do list.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/SimpleEditor.png",
+          title: "SimpleEditor",
+          description: "A simple text editor.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/LottoSimulation.png",
+          title: "LottoSimulation",
+          description: "Simulate a lottery.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/FootballSimulator.png",
+          title: "FootballSimulator",
+          description: "Simulate a football league.",
+          technologies: "WPF, C#",
+        },
+      ],
+    },
+    {
+      title: "Games",
+      images: [
+        {
+          src: "./joulian-portfolio/OutOfLight.png",
+          title: "OutOfLight",
+          description: "A short first-person horror game in Unity.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/Breakout.png",
+          title: "Breakout",
+          description: "A physics-based breakout game.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/Platformer.png",
+          title: "2D-Platformer",
+          description: "A simple 2D platformer.",
+          technologies: "Unity, C#",
+        },
+        {
+          src: "./joulian-portfolio/UNO.png",
+          title: "UNO",
+          description: "A UNO game with music player.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/RedLightGreenLight.png",
+          title: "RedGreen",
+          description: "A game where you move on green and stop on red. (Squid Game)",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/Snake.png",
+          title: "Snake",
+          description: "A classic snake game.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/TicTacToe.png",
+          title: "TicTacToe",
+          description: "A simple tic-tac-toe game.",
+          technologies: "WPF, C#",
+        },
+        {
+          src: "./joulian-portfolio/Yahtzee.png",
+          title: "Yahtzee",
+          description: "A dice game.",
+          technologies: "WPF, C#",
+        },
+      ],
+    },
+    {
+      title: "Websites",
+      images: [
+        {
+          src: "./joulian-portfolio/DreamStudio.png",
+          title: "DreamStudio",
+          description: "A website for photographers.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/ArtGallery.png",
+          title: "ArtGallery",
+          description: "A website to showcase artworks.",
+          technologies: "HTML, CSS",
+        },
+        {
+          src: "./joulian-portfolio/Pong.png",
+          title: "Pong",
+          description: "A classic pong game.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/AvatarCreator.png",
+          title: "AvatarCreator",
+          description: "Create an avatar with various options.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/Recipe.png",
+          title: "Recipe",
+          description: "A simple recipe page.",
+          technologies: "HTML, CSS",
+        },
+        {
+          src: "./joulian-portfolio/Hangman.png",
+          title: "Hangman",
+          description: "A hangman game.",
+          technologies: "HTML, CSS, JavaScript",
+        },
+        {
+          src: "./joulian-portfolio/CarAnimation.png",
+          title: "CarAnimation",
+          description: "An animation of a driving car.",
+          technologies: "HTML, CSS",
+        },
+      ],
+    },
+  ]
+};
 
 function Projects() {
+  const { language, t } = useContext(LanguageContext);
+  const sections = sectionsData[language];
+
   return (
     <div className="projects-container">
 
@@ -209,7 +370,7 @@ function Projects() {
 
       {sections.map((section, index) => (
         <React.Fragment key={index}>
-          <Section title={section.title} images={section.images}/>
+          <Section title={section.title} images={section.images} t={t}/>
           {index < sections.length - 1 && <hr style={{ margin: "50px 0", border: "1px solid #7f5af0" }}/>}
         </React.Fragment>
       ))}
@@ -217,7 +378,7 @@ function Projects() {
   );
 }
 
-function Section({ title, images }) {
+function Section({ title, images, t }) {
   const [currentImage, setCurrentImage] = useState(images[0]);
 
   const settings = {
@@ -240,7 +401,7 @@ function Section({ title, images }) {
           <h2>{currentImage.title}</h2>
           <p>{currentImage.description}</p>
           <p>
-            <strong>Technologien:</strong> <span className="technologies-text">{currentImage.technologies}</span>
+            <strong>{t.projects.technologies}:</strong> <span className="technologies-text">{currentImage.technologies}</span>
           </p>
         </div>
 

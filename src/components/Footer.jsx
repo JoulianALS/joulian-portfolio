@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { LanguageContext } from "../App";
 
 // Simple TryHackMe SVG icon component
 const TryHackMeIcon = ({ size = 30 }) => (
@@ -20,10 +21,12 @@ const TryHackMeIcon = ({ size = 30 }) => (
 );
 
 function Footer() {
+  const { t } = useContext(LanguageContext);
+
   return (
     <footer>
       {/* Copyright Text */}
-      <p>&copy; Joulian Alsuliman 2025. Alle Rechte vorbehalten.</p>
+      <p>&copy; {t.footer.copyright}</p>
 
       {/* GitHub and LinkedIn Links */}
       <div
