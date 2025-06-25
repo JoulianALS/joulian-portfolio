@@ -1,6 +1,24 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+// Simple TryHackMe SVG icon component
+const TryHackMeIcon = ({ size = 30 }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="16" r="16" fill="#212529" />
+    <text
+      x="16"
+      y="21"
+      textAnchor="middle"
+      fontSize="13"
+      fill="#fff"
+      fontFamily="Arial"
+      fontWeight="bold"
+    >
+      THM
+    </text>
+  </svg>
+);
+
 function Footer() {
   return (
     <footer>
@@ -8,7 +26,14 @@ function Footer() {
       <p>&copy; Joulian Alsuliman 2025. Alle Rechte vorbehalten.</p>
 
       {/* GitHub and LinkedIn Links */}
-      <div className="social-links" style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+      <div
+        className="social-links"
+        style={{
+          display: "flex",
+          gap: "10px",
+          justifyContent: "center",
+        }}
+      >
         <a
           href="https://github.com/JoulianALS"
           target="_blank"
@@ -24,6 +49,14 @@ function Footer() {
           aria-label="LinkedIn"
         >
           <FaLinkedin size={30} />
+        </a>
+        <a
+          href="https://tryhackme.com/p/joulianalsuliman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TryHackMe"
+        >
+          <TryHackMeIcon size={30} />
         </a>
       </div>
     </footer>
