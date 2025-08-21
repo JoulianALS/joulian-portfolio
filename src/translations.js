@@ -9,7 +9,7 @@ const translations = {
     },
     home: {
       title: "Willkommen in meinem Portfolio!",
-      intro: "Hey! Ich bin Joulian Alsuliman, ein Student der IT-Multimedia und Game Development.",
+      intro: "Hey! Ich bin Joulian Alsuliman, Software Developer • Game Developer • Web Developer.",
       quote: "\"Wer aufhört zu lernen, beginnt zu sterben.\" – Sokrates",
       cta: "Entdecke meine Arbeit und nimm Kontakt auf!"
     },
@@ -43,7 +43,7 @@ const translations = {
     },
     home: {
       title: "Welcome to my portfolio!",
-      intro: "Hey! I'm Joulian Alsuliman, a student of IT-Multimedia and Game Development.",
+      intro: "Hey! I'm Joulian Alsuliman, Software Developer • Game Developer • Web Developer",
       quote: "\"He who stops learning begins to die.\" – Socrates",
       cta: "Discover my work and get in touch!"
     },

@@ -8,7 +8,7 @@ const skillsData = {
       "HTML", "CSS", "JavaScript", "C#", "Python", "PHP"
     ],
     "Frameworks": [
-      "React", "Next.js", "Vue.js", "Blazor", ".NET", "WPF"
+      "React", "Next.js", "Vue.js", "Blazor", ".NET", "WPF", "Laravel"
     ],
     "Libraries": [
       "Bootstrap", "Three.js", "TKinter"
@@ -37,7 +37,7 @@ const skillsData = {
       "HTML", "CSS", "JavaScript", "C#", "Python", "PHP"
     ],
     "Frameworks": [
-      "React", "Next.js", "Vue.js", "Blazor", ".NET", "WPF"
+      "React", "Next.js", "Vue.js", "Blazor", ".NET", "WPF", "Laravel"
     ],
     "Libraries": [
       "Bootstrap", "Three.js", "TKinter"
