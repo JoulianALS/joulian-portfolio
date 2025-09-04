@@ -65,6 +65,12 @@ const sectionsData = {
       title: "Spiele",
       images: [
         {
+          src: "./joulian-portfolio/HugsOfDeath.png",
+          title: "HugsOfDeath",
+          description: "Ein kleines horde survival Spiel für SKG GameJam.",
+          technologies: "Unreal Engine, Blueprints",
+        },
+        {
           src: "./joulian-portfolio/OutOfLight.png",
           title: "OutOfLight",
           description: "Ein kurzes First-Person Horrorspiel in Unity.",
@@ -258,6 +264,12 @@ const sectionsData = {
     {
       title: "Games",
       images: [
+        {
+          src: "./joulian-portfolio/HugsOfDeath.png",
+          title: "HugsOfDeath",
+          description: "A small horde survival game for SKG GameJam.",
+          technologies: "Unreal Engine, Blueprints",
+        },
         {
           src: "./joulian-portfolio/OutOfLight.png",
           title: "OutOfLight",
